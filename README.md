@@ -30,6 +30,14 @@ $ python convert_decimal64.py
 
 ### Java
 
+Compile
+
+```
+$ javac Decimal62Converter.java
+```
+
+Execute
+
 ```
 $ java Decimal62Converter
 # Encrypt to decimal62
