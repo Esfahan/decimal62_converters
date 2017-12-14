@@ -1,11 +1,3 @@
-/* 
- *
- * Description: Example User Defined Scalar Function: Add 2 ints
- *
- * Create Date: June 1, 2013
- */
-//package com.vertica.JavaLibs;
-
 import java.util.regex.Pattern;
 
 public class Decimal62Converter {
