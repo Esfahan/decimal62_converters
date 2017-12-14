@@ -1,4 +1,4 @@
-# r-decode_decimal64
+# decimal64_converters
 Decode decimal64 to decimal10
 
 ## Usage
