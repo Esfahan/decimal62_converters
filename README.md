@@ -12,9 +12,9 @@ decimal62 = 3d7
 
 ```
 $ Rscript decode_decimal62.r
-[1] "# Encrypt to decimal62"
+[1] "0"
 [1] "3d7"
-[1] "# Decrypt to decimal10"
+[1] 0
 [1] 12345
 ```
 
@@ -22,9 +22,9 @@ $ Rscript decode_decimal62.r
 
 ```
 $ python convert_decimal62.py
-# Encrypt to decimal62
+0
 3d7
-# Decrypt to decimal10
+0
 12345
 ```
 
@@ -40,8 +40,8 @@ Execute
 
 ```
 $ java Decimal62Converter
-# Encrypt to decimal62
+0
 3d7
-# Decrypt to decimal10
+0
 12345
 ```
