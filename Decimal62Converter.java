@@ -2,13 +2,13 @@ import java.util.regex.Pattern;
 
 public class Decimal62Converter {
     private static final String TABLE = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    private static final int BASE = 62;
 
     public static void main(String[] args) {
-        String decimal62 = encrypt(12345);
-        System.out.println("# Encrypt to decimal62");
-        System.out.println(decimal62);
-        System.out.println("# Decrypt to decimal10");
-        System.out.println(decrypt(decimal62));
+        System.out.println(encrypt(0));
+        System.out.println(encrypt(12345));
+        System.out.println(decrypt("0"));
+        System.out.println(decrypt("3d7"));
     }
 
     /** concatenate integers
@@ -33,9 +33,13 @@ public class Decimal62Converter {
     public static String encrypt(long number)
     {
         StringBuffer sb = new StringBuffer();
-        while(number > 0) {
-            sb.insert(0, TABLE.charAt((int)(number % 62)));
-            number = number / 62;
+        while(true) {
+            sb.insert(0, TABLE.charAt((int)(number % BASE)));
+            number = number / BASE;
+
+            if (number == 0) {
+                break;
+            }
         }
         return sb.toString();
     }
@@ -58,7 +62,7 @@ public class Decimal62Converter {
         long decimal = 0;
         for(int i = 0; i < reverse.length(); i++) {
             int digit = TABLE.indexOf(reverse.charAt(i));
-            decimal = (long) (decimal + digit * Math.pow(62, i));
+            decimal = (long) (decimal + digit * Math.pow(BASE, i));
         }
         return decimal;
     }

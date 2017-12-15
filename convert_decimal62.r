@@ -1,39 +1,28 @@
-alnum <- '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJELMNOPQRSTUVWXYZ'
-
-encode_decimal62 <- function(num, chars = alnum) {
-    chars_list <- unlist(strsplit(chars, split = ""))
-
-    str <- ''
-    while(num != 0) {
-        str = gsub(" ", "", paste(chars_list[num %% nchar(chars) + 1], str), fixed = TRUE)
-        num = num - num %% nchar(chars)
-        num = num / nchar(chars)
+encode_decimal62 <- function(num, chars=c(0:9, letters, LETTERS)) {
+    base <- length(chars)
+    str <- NULL
+    repeat {
+        str <- c(chars[num %% base+1], str)
+        num <- num %/% base
+        if (num == 0) {
+            break
+        }
     }
-
-    str
+    paste(str, collapse="")
 }
 
-decode_decimal62 <- function(str, chars = alnum) {
-    chars_list <- unlist(strsplit(chars, split = ""))
+decode_decimal62 <- function(str, chars=c(0:9, letters, LETTERS)) {
+    base <- length(chars)
     str_list <- unlist(strsplit(str, split = ""))
-
     num <- 0
     for (char in str_list) {
-        num = num * nchar(chars)
-        num = num + which(chars_list == char) - 1
+        num <- num * base + which(chars == char) - 1
     }
-
     num
 }
 
+encode_decimal62(0)
+encode_decimal62(12345)
 
-num <- 12345
-str <- encode_decimal62(num)
-
-print('# Encrypt to decimal62')
-print(str)
-
-res <- decode_decimal62(str)
-
-print('# Decrypt to decimal10')
-print(res)
+decode_decimal62("0")
+decode_decimal62("3d7")
