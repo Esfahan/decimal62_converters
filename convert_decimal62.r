@@ -1,6 +1,6 @@
 alnum <- '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJELMNOPQRSTUVWXYZ'
 
-encode_decimal64 <- function(num, chars = alnum) {
+encode_decimal62 <- function(num, chars = alnum) {
     chars_list <- unlist(strsplit(chars, split = ""))
 
     str <- ''
@@ -13,7 +13,7 @@ encode_decimal64 <- function(num, chars = alnum) {
     str
 }
 
-decode_decimal64 <- function(str, chars = alnum) {
+decode_decimal62 <- function(str, chars = alnum) {
     chars_list <- unlist(strsplit(chars, split = ""))
     str_list <- unlist(strsplit(str, split = ""))
 
@@ -28,12 +28,12 @@ decode_decimal64 <- function(str, chars = alnum) {
 
 
 num <- 12345
-str <- encode_decimal64(num)
+str <- encode_decimal62(num)
 
 print('# Encrypt to decimal62')
 print(str)
 
-res <- decode_decimal64(str)
+res <- decode_decimal62(str)
 
 print('# Decrypt to decimal10')
 print(res)

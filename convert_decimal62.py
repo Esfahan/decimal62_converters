@@ -1,6 +1,6 @@
 alnum = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJELMNOPQRSTUVWXYZ"
 
-def encode_decimal64(num, chars = alnum):
+def encode_decimal62(num, chars = alnum):
   str = ""
   while num != 0:
     str = chars[num % len(chars)] + str
@@ -8,7 +8,7 @@ def encode_decimal64(num, chars = alnum):
     num = num / len(chars)
   return str
 
-def decode_decimal64(string, chars = alnum):
+def decode_decimal62(string, chars = alnum):
   num = 0
   for char in string:
     num = num * len(chars)
@@ -17,12 +17,12 @@ def decode_decimal64(string, chars = alnum):
 
 
 num = 12345
-string = encode_decimal64(num)
+string = encode_decimal62(num)
 
 print('# Encrypt to decimal62')
 print(string)
 
 print('# Decrypt to decimal10')
-print(decode_decimal64(string))
+print(decode_decimal62(string))
 
 
